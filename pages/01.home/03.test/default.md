@@ -13,8 +13,7 @@ content:
 ---
 
 
-! references: 
-["Static Secrets: Key/Value Secret Engine"](https://learn.hashicorp.com/vault/secrets-management/sm-static-secrets)
+! references:  [Static Secrets: Key/Value Secret Engine](https://learn.hashicorp.com/vault/secrets-management/sm-static-secrets)
 
 
 
