@@ -1,5 +1,5 @@
 ---
-title: test
+title: # vault usage
 admin:
     children_display_order: collection
 content:
