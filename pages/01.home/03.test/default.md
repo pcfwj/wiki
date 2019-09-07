@@ -63,7 +63,7 @@ $ vault login -method ldap username=<your profile username>
 $ vault status
 ```
 
-# list all secrets engine
+## list all secrets engine
 ```bash
 $ vault secrets list
 Path          Type         Accessor              Description
