@@ -17,13 +17,13 @@ content:
 
 
 
-1. Prerequisites
+## Prerequisites
 
 To perform the tasks described in this guide, you need to have a Vault environment. Refer to the [Getting Started](https://learn.hashicorp.com/vault/getting-started/install) guide to install Vault. Make sure that your Vault server has been [initialized and unsealed](https://learn.hashicorp.com/vault/getting-started/deploy).
 
 
 
-2. Installing Vault
+## Installing Vault
 
 > Download Vault from offical site
 > https://www.vaultproject.io/downloads.html
@@ -41,7 +41,7 @@ To perform the tasks described in this guide, you need to have a Vault environme
 
 
 
-3. Test vault
+## Test vault
 
 ```bash
 echo '10.76.2.35 vault-st.pp.akscsz.cn' >> /etc/hosts
@@ -51,17 +51,17 @@ export VAULT_SKIP_VERIFY="true"
 
 
 
-4. To install completions, run:
+## To install completions, run:
 ```bash
 $ vault -autocomplete-install
 
 
-5. login to vault
+## login to vault
 $ vault login -method ldap username=<your profile username>
 $ vault status
 ```
 
-6. list all secrets engine
+## list all secrets engine
 ```bash
 $ vault secrets list
 Path          Type         Accessor              Description
@@ -76,7 +76,7 @@ sys/          system       system_d0ecff28       system endpoints used for contr
 ```
 
 
-7. create version 2 kv secret
+## create version 2 kv secret
 ```bash
 $ vault secrets enable -path secret2/ -version 2 kv  
 Success! Enabled the kv secrets engine at: secret2/
@@ -94,7 +94,7 @@ version          1
 
 
 
-8. vault kv list command is used to list all the keys under current path
+## vault kv list command is used to list all the keys under current path
 ```bash
 $ vault kv list secret2
 
@@ -116,7 +116,7 @@ No value found at secret2/metadata/a/b/c
 
 
 
-9. vault kv get command is used to Retrieves data from the KV store
+## vault kv get command is used to Retrieves data from the KV store
 ```bash
 $ vault kv get secret2/a/b/c    
 ====== Metadata ======
@@ -137,7 +137,7 @@ hello    123
 
 
 
-10. create version 1 kv secret
+## create version 1 kv secret
 ```bash
 $ vault secrets enable -path secret1/ -version 1 kv   
 Success! Enabled the kv secrets engine at: secret1/
@@ -148,7 +148,7 @@ Success! Data written to: secret1/a/b/c
 
 
 
-11. delete one path (if you want to delete path secret1/a, firstly you need delete path a/b/c and path a/b )
+## delete one path (if you want to delete path secret1/a, firstly you need delete path a/b/c and path a/b )
 ```bash
 $ vault delete secret1/a/b/c
 Success! Data deleted (if it existed) at: secret1/a/b/c
@@ -156,7 +156,7 @@ Success! Data deleted (if it existed) at: secret1/a/b/c
 
 
 
-> ### Q: How do I save multiple values at once?
+### Q: How do I save multiple values at once?
 
 The two examples introduced in this guide only had a single key/value pair. You can pass multiple values in a single command.
 
@@ -165,7 +165,7 @@ $ vault kv put kv-v1/dev/config/mongodb url=foo.example.com:35533 db_name=users 
  username=admin password=passw0rd
 ```
 
-> Or, read several secrets from a file:
+Or, read several secrets from a file:
 
 ```sh
 $ tee mongodb.json <<EOF
