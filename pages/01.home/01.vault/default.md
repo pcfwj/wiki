@@ -1,5 +1,5 @@
 ---
-title: vault cli usage
+title: 'vault cli usage'
 admin:
     children_display_order: collection
 content:
@@ -10,8 +10,8 @@ content:
     limit: '5'
     pagination: '1'
     url_taxonomy_filters: '1'
+creator: admin
 ---
-
 
 ! references:  [Static Secrets: Key/Value Secret Engine](https://learn.hashicorp.com/vault/secrets-management/sm-static-secrets)
 
