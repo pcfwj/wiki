@@ -17,13 +17,13 @@ content:
 
 
 
-## Prerequisites
+1. Prerequisites
 
 To perform the tasks described in this guide, you need to have a Vault environment. Refer to the [Getting Started](https://learn.hashicorp.com/vault/getting-started/install) guide to install Vault. Make sure that your Vault server has been [initialized and unsealed](https://learn.hashicorp.com/vault/getting-started/deploy).
 
 
 
-## Installing Vault
+2. Installing Vault
 
 > Download Vault from offical site
 > https://www.vaultproject.io/downloads.html
@@ -41,7 +41,7 @@ To perform the tasks described in this guide, you need to have a Vault environme
 
 
 
-## Test vault
+3. Test vault
 
 ```bash
 echo '10.76.2.35 vault-st.pp.akscsz.cn' >> /etc/hosts
@@ -51,17 +51,19 @@ export VAULT_SKIP_VERIFY="true"
 
 
 
-## To install completions, run:
+4. To install completions, run:
+
 ```bash
 $ vault -autocomplete-install
+```
 
-
-## login to vault
+5. login to vault
+```bash
 $ vault login -method ldap username=<your profile username>
 $ vault status
 ```
 
-## list all secrets engine
+6. list all secrets engine
 ```bash
 $ vault secrets list
 Path          Type         Accessor              Description
@@ -76,7 +78,7 @@ sys/          system       system_d0ecff28       system endpoints used for contr
 ```
 
 
-## create version 2 kv secret
+7. create version 2 kv secret
 ```bash
 $ vault secrets enable -path secret2/ -version 2 kv  
 Success! Enabled the kv secrets engine at: secret2/
@@ -94,7 +96,7 @@ version          1
 
 
 
-## vault kv list command is used to list all the keys under current path
+8. vault kv list command is used to list all the keys under current path
 ```bash
 $ vault kv list secret2
 
@@ -116,7 +118,7 @@ No value found at secret2/metadata/a/b/c
 
 
 
-## vault kv get command is used to Retrieves data from the KV store
+9. vault kv get command is used to Retrieves data from the KV store
 ```bash
 $ vault kv get secret2/a/b/c    
 ====== Metadata ======
@@ -137,7 +139,7 @@ hello    123
 
 
 
-## create version 1 kv secret
+10. create version 1 kv secret
 ```bash
 $ vault secrets enable -path secret1/ -version 1 kv   
 Success! Enabled the kv secrets engine at: secret1/
@@ -148,7 +150,7 @@ Success! Data written to: secret1/a/b/c
 
 
 
-## delete one path (if you want to delete path secret1/a, firstly you need delete path a/b/c and path a/b )
+11. delete one path (if you want to delete path secret1/a, firstly you need delete path a/b/c and path a/b )
 ```bash
 $ vault delete secret1/a/b/c
 Success! Data deleted (if it existed) at: secret1/a/b/c
